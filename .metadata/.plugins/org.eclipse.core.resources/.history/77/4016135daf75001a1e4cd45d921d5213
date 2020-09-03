@@ -1,0 +1,33 @@
+package com.aditya.servlets;
+
+import javax.servlet.http.*;  
+import javax.servlet.*;  
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+
+public class ServletReq extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				response.setContentType("text/html");
+				PrintWriter out=response.getWriter();
+				String name=request.getParameter("name");
+				out.println("Welcome"+name);
+				int cl=request.getContentLength();
+				out.println("Content Length is:"+cl);
+				String ce=request.getCharacterEncoding();
+				out.println("Character Encoding is:"+ce);
+				String ct=request.getContentType();
+				out.println("Content Type is:"+ct);
+				int sp=request.getServerPort();
+				out.println("Content Length is:"+sp);
+				String sn=request.getServerName();
+				out.println("Server Name is:"+sn);
+	}
+
+}
